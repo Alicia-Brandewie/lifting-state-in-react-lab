@@ -1,5 +1,9 @@
-
 import './App.css';
+// import { useState } from 'react';
+
+// import IngredientList from './components/IngredientList/IngredientList';'./components/IngredientList/IngredientList';
+// import BurgerStack from './components/BurgerStack/BurgerStack';
+
 
 const App = () => {
   const availableIngredients = [
@@ -19,12 +23,48 @@ const App = () => {
     { name: 'Swiss Cheese', color: '#F1E1A8' },
   ];
 
+//   const [stack, setStack] = useState([availableIngredients])
+
+//   const addToBurger = () => {
+// //for button click in childIngredientList
+
+//   }
+
+  
+
+//     const removeFromBurger = () => {
+// //for button click in childBurgerStack
+
+//     }
+
+
+
+
   return (
     <main>
       <h1>Burger Stacker</h1>
       <section>
-      {/* List & Stack components */}
-      </section>
+        <div>
+            {availableIngredients.map((ingredient) =>
+      <ul>
+        <li 
+        key={ingredient.name}
+        // style={{ backgroundColor: ingredient.color }}
+        >
+        {ingredient.name}
+        </li>
+    {/* <button onClick={props.addToBurger}> + </button> */}
+  </ul>
+      )}
+
+        {/* <IngredientList 
+          addToBurger={addToBurger} /> */}
+        </div>
+        
+        {/* <div>
+        <BurgerStack removeFromBurger={removeFromBurger}/>      
+       </div> */}
+        </section>
     </main>
   );
 };

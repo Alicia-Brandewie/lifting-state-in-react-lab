@@ -1,12 +1,12 @@
-# React + Vite
+# User Stories
+As a user, I want to be able to see a list of the ingredients that can be added to my burger on the left side of the screen.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+As a user, I want to be able to see a stack of the ingredients that make up my burger on the right side of the screen.
 
-Currently, two official plugins are available:
+As a user, I want to click a ‘+’ button on an ingredient to add it to my burger stack. This action will place the ingredient on the stack displayed on the right side of the screen, while keeping the original ingredient list on the left unchanged.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+As a user, I want to click an ‘X’ button on an ingredient in my burger stack to remove it. This will take the ingredient off the stack on the right side of the screen, without changing the ingredient list on the left.
 
-## Expanding the ESLint configuration
+# WIP 
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# COMPLETE
