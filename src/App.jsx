@@ -7,7 +7,7 @@ import BurgerStack from './components/BurgerStack/BurgerStack';
 
 
 const App = () => {
-  const [availableIngredients, setAvailableIngredients] = useState([
+  const availableIngredients = [
     { name: 'Kaiser Bun', color: 'saddlebrown' },
     { name: 'Sesame Bun', color: 'sandybrown' },
     { name: 'Gluten Free Bun', color: 'peru' },
@@ -22,7 +22,7 @@ const App = () => {
     { name: 'Onion', color: 'lightyellow' },
     { name: 'Cheddar Cheese', color: '#FDE18B' },
     { name: 'Swiss Cheese', color: '#F1E1A8' },
-  ]);
+  ];
 
   const [stack, setStack] = useState([]);
 
@@ -37,11 +37,10 @@ const App = () => {
     // console.log("availabile ingredients:", availableIngredients);
   };
 
-  
-
     const removeFromBurger = (ingredient) => {
-      const sendEmBackIngredients = stack.filter((banana)=>
-        banana.name !== ingredient.name);
+      const sendEmBackIngredients = ()=> {stack.pop(ingredient)};
+      // const sendEmBackIngredients = stack.filter((banana)=>
+      //   banana.name !== ingredient.name);
       setStack(sendEmBackIngredients);
       // availableIngredients.push(ingredient);
       // setAvailableIngredients(availableIngredients); 
@@ -49,9 +48,6 @@ const App = () => {
     // console.log("leftover Ingredients:", leftoverIngredients);
     // console.log("availabile ingredients:", availableIngredients);
     };
-
-
-
 
   return (
     <main>
