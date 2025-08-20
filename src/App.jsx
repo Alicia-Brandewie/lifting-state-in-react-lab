@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 import IngredientList from './components/IngredientList/IngredientList';'./components/IngredientList/IngredientList';
 import BurgerStack from './components/BurgerStack/BurgerStack';
+// import { send } from 'vite';
 
 
 const App = () => {
@@ -23,27 +24,32 @@ const App = () => {
     { name: 'Swiss Cheese', color: '#F1E1A8' },
   ]);
 
-  const [stack, setStack] = useState([])
+  const [stack, setStack] = useState([]);
 
   const addToBurger = (ingredient) => {
-//for button click in childIngredientList
     const leftoverIngredients = availableIngredients.filter((banana) =>
-      banana.name !== ingredient.name
-    );
+      banana.name !== ingredient.name);
     setAvailableIngredients(leftoverIngredients);
     stack.push(ingredient);
     setStack(stack);
     console.log("Burger:", stack);
     console.log("leftover Ingredients:", leftoverIngredients);
     console.log("availabile ingredients:", availableIngredients);
-  }
+  };
 
   
 
-//     const removeFromBurger = () => {
-// //for button click in childBurgerStack
-
-//     }
+    const removeFromBurger = (ingredient) => {
+//for button click in childBurgerStack
+      const sendEmBackIngredients = stack.filter((banana)=>
+        banana.name !== ingredient.name);
+      setStack(sendEmBackIngredients);
+      availableIngredients.push(ingredient);
+      setAvailableIngredients(availableIngredients); 
+      console.log("Burger:", stack);
+    console.log("leftover Ingredients:", leftoverIngredients);
+    console.log("availabile ingredients:", availableIngredients);
+    };
 
 
 
@@ -60,11 +66,10 @@ const App = () => {
         </div>
         
         <div>
-        {/* <BurgerStack 
-        availableIngredients={availableIngredients}
-
-        // removeFromBurger={removeFromBurger}
-        />       */}
+        <BurgerStack 
+        stack={stack}
+        removeFromBurger={removeFromBurger}
+        />      
        </div>
         </section>
     </main>
