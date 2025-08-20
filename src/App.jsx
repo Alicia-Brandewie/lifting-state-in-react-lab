@@ -1,12 +1,12 @@
 import './App.css';
-// import { useState } from 'react';
+import { useState } from 'react';
 
-// import IngredientList from './components/IngredientList/IngredientList';'./components/IngredientList/IngredientList';
-// import BurgerStack from './components/BurgerStack/BurgerStack';
+import IngredientList from './components/IngredientList/IngredientList';'./components/IngredientList/IngredientList';
+import BurgerStack from './components/BurgerStack/BurgerStack';
 
 
 const App = () => {
-  const availableIngredients = [
+  const [availableIngredients, setAvailableIngredients] = useState([
     { name: 'Kaiser Bun', color: 'saddlebrown' },
     { name: 'Sesame Bun', color: 'sandybrown' },
     { name: 'Gluten Free Bun', color: 'peru' },
@@ -21,14 +21,21 @@ const App = () => {
     { name: 'Onion', color: 'lightyellow' },
     { name: 'Cheddar Cheese', color: '#FDE18B' },
     { name: 'Swiss Cheese', color: '#F1E1A8' },
-  ];
+  ]);
 
-//   const [stack, setStack] = useState([availableIngredients])
+  const [stack, setStack] = useState([])
 
-//   const addToBurger = () => {
-// //for button click in childIngredientList
+  const addToBurger = (ingredient) => {
+//for button click in childIngredientList
+    const leftoverIngredients = availableIngredients.filter((ingredient) =>
+      stack.name !== ingredient.name
+    );
+    setAvailableIngredients(leftoverIngredients);
+    stack.push(ingredient);
+    setStack(stack);
+    console.log(stack);
 
-//   }
+  }
 
   
 
@@ -45,25 +52,19 @@ const App = () => {
       <h1>Burger Stacker</h1>
       <section>
         <div>
-            {availableIngredients.map((ingredient) =>
-      <ul>
-        <li 
-        key={ingredient.name}
-        // style={{ backgroundColor: ingredient.color }}
-        >
-        {ingredient.name}
-        </li>
-    {/* <button onClick={props.addToBurger}> + </button> */}
-  </ul>
-      )}
-
-        {/* <IngredientList 
-          addToBurger={addToBurger} /> */}
+        <IngredientList 
+          availableIngredients={availableIngredients}
+          addToBurger={addToBurger} 
+          />
         </div>
         
-        {/* <div>
-        <BurgerStack removeFromBurger={removeFromBurger}/>      
-       </div> */}
+        <div>
+        {/* <BurgerStack 
+        availableIngredients={availableIngredients}
+
+        // removeFromBurger={removeFromBurger}
+        />       */}
+       </div>
         </section>
     </main>
   );
