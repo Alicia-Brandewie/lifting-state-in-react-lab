@@ -27,28 +27,27 @@ const App = () => {
   const [stack, setStack] = useState([]);
 
   const addToBurger = (ingredient) => {
-    const leftoverIngredients = availableIngredients.filter((banana) =>
-      banana.name !== ingredient.name);
-    setAvailableIngredients(leftoverIngredients);
+    // const leftoverIngredients = availableIngredients.filter((banana) =>
+    //   banana.name !== ingredient.name);
+    // setAvailableIngredients(leftoverIngredients);
     stack.push(ingredient);
     setStack(stack);
     console.log("Burger:", stack);
-    console.log("leftover Ingredients:", leftoverIngredients);
-    console.log("availabile ingredients:", availableIngredients);
+    // console.log("leftover Ingredients:", leftoverIngredients);
+    // console.log("availabile ingredients:", availableIngredients);
   };
 
   
 
     const removeFromBurger = (ingredient) => {
-//for button click in childBurgerStack
       const sendEmBackIngredients = stack.filter((banana)=>
         banana.name !== ingredient.name);
       setStack(sendEmBackIngredients);
-      availableIngredients.push(ingredient);
-      setAvailableIngredients(availableIngredients); 
+      // availableIngredients.push(ingredient);
+      // setAvailableIngredients(availableIngredients); 
       console.log("Burger:", stack);
-    console.log("leftover Ingredients:", leftoverIngredients);
-    console.log("availabile ingredients:", availableIngredients);
+    // console.log("leftover Ingredients:", leftoverIngredients);
+    // console.log("availabile ingredients:", availableIngredients);
     };
 
 
@@ -58,19 +57,19 @@ const App = () => {
     <main>
       <h1>Burger Stacker</h1>
       <section>
-        <div>
+        {/* <div> */}
         <IngredientList 
           availableIngredients={availableIngredients}
           addToBurger={addToBurger} 
           />
-        </div>
+        {/* </div> */}
         
-        <div>
+        {/* <div> */}
         <BurgerStack 
         stack={stack}
         removeFromBurger={removeFromBurger}
         />      
-       </div>
+       {/* </div> */}
         </section>
     </main>
   );
