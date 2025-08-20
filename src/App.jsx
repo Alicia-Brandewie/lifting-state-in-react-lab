@@ -27,14 +27,15 @@ const App = () => {
 
   const addToBurger = (ingredient) => {
 //for button click in childIngredientList
-    const leftoverIngredients = availableIngredients.filter((ingredient) =>
-      stack.name !== ingredient.name
+    const leftoverIngredients = availableIngredients.filter((banana) =>
+      banana.name !== ingredient.name
     );
     setAvailableIngredients(leftoverIngredients);
     stack.push(ingredient);
     setStack(stack);
-    console.log(stack);
-
+    console.log("Burger:", stack);
+    console.log("leftover Ingredients:", leftoverIngredients);
+    console.log("availabile ingredients:", availableIngredients);
   }
 
   
