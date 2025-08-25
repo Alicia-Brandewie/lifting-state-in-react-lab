@@ -33,7 +33,6 @@ const App = () => {
     const leftoverIngredients = stack.filter((banana) =>
       banana.name !== ingredient.name);
     setStack(leftoverIngredients)
-    console.log("Burger:", stack);
   }
 
   return (
