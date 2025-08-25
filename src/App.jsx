@@ -1,10 +1,8 @@
 import './App.css';
 import { useState } from 'react';
 
-import IngredientList from './components/IngredientList/IngredientList';'./components/IngredientList/IngredientList';
+import IngredientList from './components/IngredientList/IngredientList'; './components/IngredientList/IngredientList';
 import BurgerStack from './components/BurgerStack/BurgerStack';
-// import { send } from 'vite';
-
 
 const App = () => {
   const availableIngredients = [
@@ -26,71 +24,33 @@ const App = () => {
 
   const [stack, setStack] = useState([]);
 
-  // const addToBurger = (ingredient) => {
-  //   // const leftoverIngredients = availableIngredients.filter((banana) =>
-  //   //   banana.name !== ingredient.name);
-  //   // setAvailableIngredients(leftoverIngredients);
-  //       event.preventDefault();
+  const addToBurger = (ingredient) => {
+    const bananaStack = [...stack, ingredient];
+    setStack(bananaStack);
+  };
 
-  //   stack.push(ingredient);
-  //   setStack(stack);
-  //   console.log("Burger:", stack);
-  //   // console.log("leftover Ingredients:", leftoverIngredients);
-  //   // console.log("availabile ingredients:", availableIngredients);
-  // };
-
-
-const addToBurger = (props) => {
-/*=handleSubmit, GET newINgredient in here*/
-
-    event.preventDefault();
-  setStack([...stack, newStack]);
-  console.log("Set New Stack:", [...stack, newStack]);
-}
-
-
-
-
-
-    const removeFromBurger = (ingredient) => {
-          event.preventDefault();
-
-        stack.pop(ingredient);
-        setStack(stack)
-      console.log("Burger:", stack);
-
-      // const sendEmBackIngredients = ()=> {stack.pop(ingredient)};
-      // // const sendEmBackIngredients = stack.filter((banana)=>
-      // //   banana.name !== ingredient.name);
-      // setStack(sendEmBackIngredients);
-      // // availableIngredients.push(ingredient);
-      // // setAvailableIngredients(availableIngredients); 
-      // console.log("Burger:", stack);
-    // console.log("leftover Ingredients:", leftoverIngredients);
-    // console.log("availabile ingredients:", availableIngredients);
-    };
+  const removeFromBurger = (ingredient) => {
+    const leftoverIngredients = stack.filter((banana) =>
+      banana.name !== ingredient.name);
+    setStack(leftoverIngredients)
+    console.log("Burger:", stack);
+  }
 
   return (
     <main>
       <h1>Burger Stacker</h1>
       <section>
-        {/* <div> */}
-        <IngredientList 
+        <IngredientList
           availableIngredients={availableIngredients}
-          // NewIngredientsList={NewIngredientsList}
-
+          addToBurger={addToBurger}
           stack={stack}
-          addToBurger={addToBurger} 
-          />
-        {/* </div> */}
-        
-        {/* <div> */}
-        <BurgerStack 
-        stack={stack}
-        removeFromBurger={removeFromBurger}
-        />      
-       {/* </div> */}
-        </section>
+        />
+
+        <BurgerStack
+          stack={stack}
+          removeFromBurger={removeFromBurger}
+        />
+      </section>
     </main>
   );
 };
